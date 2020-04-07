@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PlayerAction : MonoBehaviour
 {
 	public Animation _anim;
@@ -10,6 +11,7 @@ public class PlayerAction : MonoBehaviour
 	private float _starttime;
 	private float lerpvalue;
 	public float _speed;
+	public static bool _isFinal = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +72,11 @@ public class PlayerAction : MonoBehaviour
         if (other.name == "Obstacle")
         {
             Debug.Log("撞到障礙物了!!!");
+        }
+		if (other.name == "final")
+        {
+			_isFinal=true;
+            Debug.Log("終點!!!");
         }
     }
 	public void ZaxisMove()
